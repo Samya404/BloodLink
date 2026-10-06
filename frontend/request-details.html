@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Details | BloodLink</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩸</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="dashboard-body">
+    <header class="navbar dashboard-nav">
+        <div class="container-fluid nav-container">
+            <a href="index.html" class="logo">🩸 BloodLink</a>
+            <div class="user-menu" id="user-menu">
+                <span id="nav-user-name">Loading...</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="dynamic-sidebar">
+            <!-- Sidebar populated by JS based on role -->
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header mb-4 flex-between">
+                <h1>Request Details</h1>
+                <a href="javascript:history.back()" class="btn btn-outline btn-sm">← Back</a>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="request-details-grid">
+                    <div class="main-info">
+                        <div class="card mb-4">
+                            <div class="card-header flex-between mb-3 border-bottom pb-2">
+                                <h2 id="req-id">Request #---</h2>
+                                <div class="badges">
+                                    <span id="req-status" class="badge">Loading...</span>
+                                    <span id="req-priority" class="badge">Loading...</span>
+                                </div>
+                            </div>
+                            
+                            <div class="info-grid grid-2 mb-4">
+                                <div class="info-item">
+                                    <label class="text-muted text-sm">Blood Group</label>
+                                    <p class="font-bold text-lg text-danger" id="req-blood-group">--</p>
+                                </div>
+                                <div class="info-item">
+                                    <label class="text-muted text-sm">Component</label>
+                                    <p id="req-component">--</p>
+                                </div>
+                                <div class="info-item">
+                                    <label class="text-muted text-sm">Units Required / Fulfilled</label>
+                                    <p id="req-units">-- / --</p>
+                                </div>
+                                <div class="info-item">
+                                    <label class="text-muted text-sm">Required By</label>
+                                    <p id="req-date">--</p>
+                                </div>
+                                <div class="info-item">
+                                    <label class="text-muted text-sm">Hospital</label>
+                                    <p id="req-hospital">--</p>
+                                </div>
+                                <div class="info-item">
+                                    <label class="text-muted text-sm">City</label>
+                                    <p id="req-city">--</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item mb-4">
+                                <label class="text-muted text-sm">Notes</label>
+                                <p id="req-notes" class="bg-light p-3 border-radius">--</p>
+                            </div>
+                            
+                            <div class="request-actions border-top pt-3 flex-end" id="req-actions">
+                                <!-- Actions populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="side-info">
+                        <div class="card mb-4" id="matching-donors-card">
+                            <h3>Matching Donors</h3>
+                            <p class="text-sm text-muted mb-3">Donors notified for this request</p>
+                            <div class="table-responsive">
+                                <table class="table text-sm" id="donors-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Donor</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="donors-tbody">
+                                        <tr><td colspan="2" class="text-center">Loading...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>Status Timeline</h3>
+                            <div class="timeline mt-3" id="req-timeline">
+                                <!-- Timeline items -->
+                                <p class="text-center text-muted">Loading timeline...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/requests.js"></script>
+</body>
+</html>

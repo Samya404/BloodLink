@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | BloodLink</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩸</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="auth-page">
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">🩸 BloodLink</a>
+        </div>
+    </header>
+
+    <main class="container centered-layout">
+        <div class="card auth-card">
+            <div class="text-center mb-4">
+                <h2>Welcome Back</h2>
+                <p>Login to your BloodLink account</p>
+            </div>
+            
+            <div id="error-message" class="alert alert-danger hidden"></div>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-input-group">
+                        <input type="password" id="password" name="password" required placeholder="Enter your password">
+                        <button type="button" class="btn-toggle-password" id="toggle-password" aria-label="Show password">👁️</button>
+                    </div>
+                </div>
+                
+                <div class="form-group checkbox-group flex-between">
+                    <label>
+                        <input type="checkbox" name="remember" id="remember"> Remember me
+                    </label>
+                    <a href="#forgot-password" class="text-sm">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            
+            <div class="auth-links text-center mt-4">
+                <p>Don't have an account? <a href="register.html">Register here</a></p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

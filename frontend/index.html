@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodLink - Real-Time Blood Availability</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h1><a href="index.html">BloodLink</a></h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blood-search.html">Find Blood</a></li>
+                <li><a href="register.html?role=donor">Become a Donor</a></li>
+                <li><a href="login.html" class="btn btn-secondary">Login</a></li>
+                <li><a href="register.html" class="btn btn-primary">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Find Blood When It Matters Most.</h2>
+                <p>Real-time blood availability and donor coordination platform bridging the gap between donors, hospitals, and patients.</p>
+                <div class="hero-buttons">
+                    <a href="blood-search.html" class="btn btn-primary btn-large">Find Blood</a>
+                    <a href="register.html?role=donor" class="btn btn-secondary btn-large">Become a Donor</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-search-section">
+            <div class="container">
+                <h3>Quick Search</h3>
+                <form id="quick-search-form" class="search-form" action="blood-search.html" method="GET">
+                    <div class="form-group">
+                        <label for="blood_group">Blood Group</label>
+                        <select name="blood_group" id="blood_group">
+                            <option value="">Any</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City/Location</label>
+                        <input type="text" name="city" id="city" placeholder="e.g. Kolkata">
+                    </div>
+                    <div class="form-group">
+                        <label for="component">Blood Component</label>
+                        <select name="component" id="component">
+                            <option value="Whole Blood">Whole Blood</option>
+                            <option value="Packed Red Blood Cells">Packed Red Blood Cells</option>
+                            <option value="Plasma">Plasma</option>
+                            <option value="Platelets">Platelets</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search Availability</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="emergency-section">
+            <div class="container text-center">
+                <h3>Need Blood Urgently?</h3>
+                <p>Create an emergency request and we'll instantly notify compatible donors nearby.</p>
+                <a href="create-request.html?priority=emergency" class="btn btn-danger btn-large">Create Emergency Request</a>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="container stats-grid">
+                <div class="stat-card">
+                    <h3 id="stat-donors">1,245</h3>
+                    <p>Registered Donors (Demo)</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="stat-hospitals">56</h3>
+                    <p>Participating Hospitals (Demo)</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="stat-fulfilled">3,892</h3>
+                    <p>Requests Fulfilled (Demo)</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="how-it-works">
+            <div class="container">
+                <h2 class="text-center">How It Works</h2>
+                <div class="steps-grid">
+                    <div class="step">
+                        <h4>1. Search</h4>
+                        <p>Find available blood at nearby hospitals in real-time.</p>
+                    </div>
+                    <div class="step">
+                        <h4>2. Request</h4>
+                        <p>Create a blood request if what you need isn't currently available.</p>
+                    </div>
+                    <div class="step">
+                        <h4>3. Connect</h4>
+                        <p>Our platform matches your request with eligible local donors.</p>
+                    </div>
+                    <div class="step">
+                        <h4>4. Fulfill</h4>
+                        <p>Donors fulfill the request at the specified hospital.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 BloodLink. All rights reserved.</p>
+            <p>Note: BloodLink is a coordination platform. Always consult medical professionals for transfusion decisions.</p>
+        </div>
+    </footer>
+</body>
+</html>

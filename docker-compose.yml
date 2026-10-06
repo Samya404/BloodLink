@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  db:
+    image: postgres:16-alpine
+    container_name: bloodlink-db
+    environment:
+      POSTGRES_DB: bloodlink
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Flask Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: bloodlink-backend
+    environment:
+      FLASK_ENV: development
+      DATABASE_URL: postgresql://postgres:password@db:5432/bloodlink
+      SECRET_KEY: docker-dev-secret-key
+      JWT_SECRET_KEY: docker-dev-jwt-secret
+      BLOOD_PROVIDER: mock
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+      - ./frontend:/app/frontend
+    depends_on:
+      db:
+        condition: service_healthy
+    command: python app.py
+
+volumes:
+  postgres_data:

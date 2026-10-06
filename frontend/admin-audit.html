@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Logs | Admin | BloodLink</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩸</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="dashboard-body admin-body">
+    <header class="navbar dashboard-nav admin-nav">
+        <div class="container-fluid nav-container">
+            <a href="index.html" class="logo">⚙️ BloodLink Admin</a>
+            <div class="user-menu" id="user-menu">
+                <span id="nav-user-name">Loading...</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar admin-sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="admin-dashboard.html">📊 Dashboard</a></li>
+                    <li><a href="admin-users.html">👥 Users</a></li>
+                    <li><a href="#hospitals">🏥 Hospitals</a></li>
+                    <li><a href="admin-requests.html">📝 Requests</a></li>
+                    <li><a href="#inventory">📦 Inventory</a></li>
+                    <li><a href="admin-audit.html" class="active">📜 Audit Logs</a></li>
+                    <li><a href="#settings">⚙️ Settings</a></li>
+                    <li><a href="#" id="logout-btn" class="text-danger">🚪 Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header mb-4">
+                <h1>Audit Logs</h1>
+                <p class="text-muted mt-1">System activity and security logging</p>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="card mb-4 filter-card">
+                    <form id="filter-audit-form" class="flex-center gap-3 justify-start wrap">
+                        <div class="form-group mb-0">
+                            <select id="audit_action" class="form-control-sm">
+                                <option value="">All Actions</option>
+                                <option value="create">Create</option>
+                                <option value="update">Update</option>
+                                <option value="delete">Delete</option>
+                                <option value="login">Login</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-0">
+                            <select id="audit_entity" class="form-control-sm">
+                                <option value="">All Entities</option>
+                                <option value="user">User</option>
+                                <option value="blood_request">Request</option>
+                                <option value="inventory">Inventory</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-primary">Filter</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <div class="table-responsive">
+                        <table class="table text-sm" id="audit-table">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>User ID</th>
+                                    <th>Action</th>
+                                    <th>Entity</th>
+                                    <th>Description</th>
+                                    <th>IP Address</th>
+                                </tr>
+                            </thead>
+                            <tbody id="audit-tbody">
+                                <tr><td colspan="6" class="text-center">Loading audit logs...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="audit-pagination" class="pagination mt-3"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

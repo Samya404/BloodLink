@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Blood | BloodLink</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩸</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">🩸 BloodLink</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blood-search.html" class="active">Find Blood</a></li>
+                    <li id="nav-donor-link"><a href="register.html?role=donor">Become a Donor</a></li>
+                </ul>
+                <div class="auth-buttons" id="auth-buttons-container">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container py-4">
+        <h1 class="mb-4">Search Blood Availability</h1>
+        
+        <div class="search-layout">
+            <aside class="search-sidebar card">
+                <h3>Filters</h3>
+                <form id="search-filters-form">
+                    <div class="form-group">
+                        <label>Blood Group</label>
+                        <div class="blood-group-grid" id="bg-filter-grid">
+                            <button type="button" class="btn-bg-filter" data-bg="A+">A+</button>
+                            <button type="button" class="btn-bg-filter" data-bg="A-">A-</button>
+                            <button type="button" class="btn-bg-filter" data-bg="B+">B+</button>
+                            <button type="button" class="btn-bg-filter" data-bg="B-">B-</button>
+                            <button type="button" class="btn-bg-filter" data-bg="AB+">AB+</button>
+                            <button type="button" class="btn-bg-filter" data-bg="AB-">AB-</button>
+                            <button type="button" class="btn-bg-filter" data-bg="O+">O+</button>
+                            <button type="button" class="btn-bg-filter" data-bg="O-">O-</button>
+                        </div>
+                        <input type="hidden" name="blood_group" id="search_blood_group">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="search_component">Component</label>
+                        <select id="search_component" name="component">
+                            <option value="">Any Component</option>
+                            <option value="Whole Blood">Whole Blood</option>
+                            <option value="PRBC">Packed Red Blood Cells</option>
+                            <option value="Plasma">Plasma</option>
+                            <option value="Platelets">Platelets</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="search_state">State</label>
+                        <input type="text" id="search_state" name="state" placeholder="e.g. CA">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="search_city">City</label>
+                        <input type="text" id="search_city" name="city" placeholder="e.g. San Francisco">
+                    </div>
+                    
+                    <div class="filter-actions mt-3">
+                        <button type="submit" class="btn btn-primary btn-block">Search</button>
+                        <button type="button" id="btn-clear-filters" class="btn btn-outline btn-block mt-2">Clear Filters</button>
+                    </div>
+                </form>
+            </aside>
+            
+            <section class="search-results-area">
+                <div id="external-api-alert" class="alert alert-warning hidden">
+                    External data providers are currently unavailable. Showing results from local BloodLink database only.
+                </div>
+                
+                <div class="results-header flex-between mb-3">
+                    <p id="results-count">Showing 0 results</p>
+                    <div class="sort-control">
+                        <label for="sort_by">Sort by: </label>
+                        <select id="sort_by">
+                            <option value="units_desc">Units (High to Low)</option>
+                            <option value="freshness">Last Updated</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="data-source-indicator mb-3">
+                    <span class="badge badge-outline">Sources: BloodLink DB + External Providers</span>
+                </div>
+                
+                <div id="search-results-container" class="results-grid">
+                    <!-- Results will be injected here -->
+                    <div class="text-center py-5">
+                        <p>Use filters and click Search to find blood availability.</p>
+                    </div>
+                </div>
+                
+                <div id="pagination-container" class="pagination mt-4 hidden">
+                    <!-- Pagination buttons -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="mt-5">
+        <div class="container footer-content text-center py-3">
+            <p>&copy; 2026 BloodLink. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/blood-search.js"></script>
+</body>
+</html>
